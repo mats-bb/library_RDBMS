@@ -1,8 +1,8 @@
-## library_RDBMS
+# library_RDBMS
 
 A simple RDBMS for a library service, with a focus on third normal form.
 
-# Features
+## Features
 
 The database should support functions such as:
 - Storing customer information
