@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="library_diagram.erd">
+	<entities>
+		<data-source id="postgres-jdbc-18a1c41b939-5f2f1e30c4c53fe">
+			<entity id="1" name="address" fq-name="public.address" order="0" x="1435" y="313">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="2" name="author" fq-name="public.author" order="1" x="1049" y="1288">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="3" name="author_book" fq-name="public.author_book" order="2" x="1225" y="1289">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="4" name="book" fq-name="public.book" order="3" x="1214" y="1099">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="5" name="book_copy" fq-name="public.book_copy" order="4" x="1214" y="885">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="6" name="book_genre" fq-name="public.book_genre" order="5" x="1038" y="1107">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="7" name="book_type" fq-name="public.book_type" order="6" x="1430" y="919">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="8" name="city" fq-name="public.city" order="7" x="1868" y="325">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="9" name="customer" fq-name="public.customer" order="8" x="1221" y="265">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="10" name="genre" fq-name="public.genre" order="9" x="866" y="1118">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="11" name="message" fq-name="public.message" order="10" x="766" y="309">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="12" name="notification" fq-name="public.notification" order="11" x="955" y="285">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="13" name="publisher" fq-name="public.publisher" order="12" x="1433" y="1127">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="14" name="rental" fq-name="public.rental" order="13" x="1215" y="582">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="15" name="wait_list" fq-name="public.wait_list" order="14" x="979" y="631">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+			<entity id="16" name="zip_city" fq-name="public.zip_city" order="15" x="1649" y="313">
+				<path name="public"/>
+				<path name="library_DBMS"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="customer_address_id_fkey" fq-name="public.customer.customer_address_id_fkey" type="fk" pk-ref="1" fk-ref="9"/>
+		<relation name="author_book_author_id_fkey" fq-name="public.author_book.author_book_author_id_fkey" type="fk" pk-ref="2" fk-ref="3"/>
+		<relation name="author_book_book_id_fkey" fq-name="public.author_book.author_book_book_id_fkey" type="fk" pk-ref="4" fk-ref="3"/>
+		<relation name="book_copy_book_id_fkey" fq-name="public.book_copy.book_copy_book_id_fkey" type="fk" pk-ref="4" fk-ref="5"/>
+		<relation name="book_genre_book_id_fkey" fq-name="public.book_genre.book_genre_book_id_fkey" type="fk" pk-ref="4" fk-ref="6"/>
+		<relation name="rental_book_copy_id_fkey" fq-name="public.rental.rental_book_copy_id_fkey" type="fk" pk-ref="5" fk-ref="14"/>
+		<relation name="wait_list_book_copy_id_fkey" fq-name="public.wait_list.wait_list_book_copy_id_fkey" type="fk" pk-ref="5" fk-ref="15"/>
+		<relation name="book_copy_book_type_id_fkey" fq-name="public.book_copy.book_copy_book_type_id_fkey" type="fk" pk-ref="7" fk-ref="5"/>
+		<relation name="zip_city_city_id_fkey" fq-name="public.zip_city.zip_city_city_id_fkey" type="fk" pk-ref="8" fk-ref="16"/>
+		<relation name="notification_customer_id_fkey" fq-name="public.notification.notification_customer_id_fkey" type="fk" pk-ref="9" fk-ref="12"/>
+		<relation name="rental_customer_id_fkey" fq-name="public.rental.rental_customer_id_fkey" type="fk" pk-ref="9" fk-ref="14"/>
+		<relation name="wait_list_customer_id_fkey" fq-name="public.wait_list.wait_list_customer_id_fkey" type="fk" pk-ref="9" fk-ref="15"/>
+		<relation name="book_genre_genre_id_fkey" fq-name="public.book_genre.book_genre_genre_id_fkey" type="fk" pk-ref="10" fk-ref="6"/>
+		<relation name="notification_message_id_fkey" fq-name="public.notification.notification_message_id_fkey" type="fk" pk-ref="11" fk-ref="12"/>
+		<relation name="book_publisher_id_fkey" fq-name="public.book.book_publisher_id_fkey" type="fk" pk-ref="13" fk-ref="4"/>
+		<relation name="address_zip_city_id_fkey" fq-name="public.address.address_zip_city_id_fkey" type="fk" pk-ref="16" fk-ref="1"/>
+	</relations>
+</diagram>
